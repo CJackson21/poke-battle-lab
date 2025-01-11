@@ -1,1 +1,7 @@
-TODO: fill out
+fastapi
+uvicorn
+sqlalchemy
+alembic
+psycopg2-binary
+python-dotenv
+requests

@@ -7,7 +7,15 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "setup-python-env": "python3 -m venv venv && venv/bin/activate && pip install -r requirements.txt",
+    "setup-windows-python-env": "python3 -m venv venv && venv\\Scripts\\activate && pip install -r requirements.txt",
+    "install-python-deps": "npm run setup-python-env || npm run setup-windows-python-env",
+    "start-backend": "uvicorn main:app --reload",
+    "start": "npm run install-python-deps && npm run start-backend",
+    "start-windows": "npm run setup-windows-python-env && npm run start-backend",
+    "start-full": "npm run start & npm run dev",
+    "install-all": "npm install && npm run install-python-deps"
   },
   "dependencies": {
     "react": "^18.3.1",
