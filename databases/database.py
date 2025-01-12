@@ -8,7 +8,7 @@ import os
 load_dotenv()
 
 # Database connection URL (fallback to local host)
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql+psycopg2://postgres:password@localhost:5432/pokemon")
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 # Create the database engine
 engine = create_engine(DATABASE_URL)
