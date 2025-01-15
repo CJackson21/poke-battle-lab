@@ -1,12 +1,10 @@
-from sqlalchemy import Column, Integer, String, JSON, Text
-from sqlalchemy.dialects.postgresql import ARRAY
-from databases.database import Base
+from django.db import models
 
-class Pokemon(Base):
-    __tablename__ = "pokemon" 
+class Pokemon(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    abilities = models.JSONField(default=list)
+    types = models.JSONField(default=list)
+    stats = models.JSONField(default=dict)
 
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String(50), unique=True, nullable=False)  # Name of the Pokémon
-    abilities = Column(ARRAY(Text))  # Array of abilities
-    types = Column(ARRAY(Text))  # Array of types (e.g., electric, fire)
-    stats = Column(JSON)  # JSON field for stats like HP, attack, defense, etc.
+    def __str__(self):
+        return self.name

@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from apscheduler.schedulers.background import BackgroundScheduler
-from utils.fetch_pokemon import fetch_all_pokemon_data, fetch_pokemon
+from databases.management.commands.fetch_pokemon import fetch_all_pokemon_data, fetch_pokemon
 from routes.pokemon.pokemon import router as pokemon_router
 
 app = FastAPI()
