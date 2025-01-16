@@ -51,6 +51,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
 ]
 
+CORS_ALLOW_ALL_ORIGINS = True
+
 Q_CLUSTER = {
     'name': 'DjangoQ',
     'workers': 4,
@@ -97,9 +99,18 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# TODO: fix .env for this 
 DATABASES = {
-        'default': env.db('DATABASE_URL', default='sqlite:///db.sqlite3'),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'pokemon',
+        'USER': 'poke_user',
+        'PASSWORD': 'none',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
+
 
 
 # Password validation

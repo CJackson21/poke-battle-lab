@@ -1,8 +1,36 @@
-fastapi
-uvicorn
-sqlalchemy
-alembic
+# Web Framework and Environment Management
+django
+django-environ
+
+# Database and PostgreSQL
 psycopg2-binary
-python-dotenv
+
+# Async Libraries
+aiohttp
+asgiref
+
+# Task Scheduling and Queuing
+django-q2
+redis
+
+# HTTP Requests
 requests
+
+# CORS Handling
+django-cors-headers
+
+# Scheduling
 apscheduler
+
+# Development and Debugging
+django-debug-toolbar
+pytest-django
+factory_boy
+
+# Code Quality
+black
+flake8
+isort
+
+
+setuptools

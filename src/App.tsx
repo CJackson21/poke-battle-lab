@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React from "react";
 import axios from "axios";
 import "./App.css";
 
@@ -11,16 +11,15 @@ interface Pokemon {
 }
 
 function App() {
-  const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const [pokemonList, setPokemonList] = React.useState<Pokemon[]>([]);
+  const [loading, setLoading] = React.useState<boolean>(true);
+  const [error, setError] = React.useState<string | null>(null);
 
   // Fetch Pokémon data from the backend
   const fetchPokemon = async () => {
     try {
-      const response = await axios.get<Pokemon[]>(
-        "http://127.0.0.1:8000/api/pokemon"
-      );
+      const response = await axios.get("http://127.0.0.1:8000/api/pokemon/");
+      console.log(response.data);
       setPokemonList(response.data);
       setError(null);
     } catch (err) {
@@ -35,19 +34,19 @@ function App() {
   };
 
   // Use useEffect to fetch Pokémon on component mount
-  useEffect(() => {
+  React.useEffect(() => {
     fetchPokemon();
   }, []);
 
   return (
     <>
       <div>
-        <a href='https://vite.dev' target='_blank'>
+        <a href='https://vite.dev' target='_blank' rel='noreferrer'>
           <img src='/vite.svg' className='logo' alt='Vite logo' />
         </a>
-        <a href='https://react.dev' target='_blank'>
+        <a href='https://react.dev' target='_blank' rel='noreferrer'>
           <img
-            src='./assets/react.svg'
+            src='/assets/react.svg'
             className='logo react'
             alt='React logo'
           />
